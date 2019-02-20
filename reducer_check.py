@@ -7,9 +7,11 @@
 import sys
 import numpy as np
 
-#list_A = []
-#list_B = []
-#current_key = str((0, 0))
+current_key = "0,0"
+current_index = str(0)
+C_temp = []
+A = None
+B = None
 
 for line in sys.stdin:
     
@@ -20,10 +22,63 @@ for line in sys.stdin:
     element = line.split("\t")
     
     key = element[0]
-    tracker = element[1]
-    value = element[2]
+    index = element[1]
+    value = float(element[2])
+    
+    if current_key == key:
+    
+        if current_index == index and A == None:
+    
+            A = value
+            current_key = key
+            current_index = index
 
-    print '%s\t%s\t%s' % (key,tracker,value)
+        elif current_index == index and B == None:
+
+            B = value
+            
+            C_temp.append(A*B)
+            
+            current_key = key
+            current_index = index
+            
+            A = None
+            B = None
+        
+        elif current_index != index and B == None:
+            
+            A = None
+            A = value
+            current_key = key
+            current_index = index
+
+        else:
+            
+            A = value
+            
+            current_key = key
+            current_index = index
+
+    else:
+    
+        C = np.sum(C_temp)
+        
+        print '%s\t%s' % (current_key,C)
+        
+        A = value
+        C_temp = []
+        C = None
+        current_key = key
+        current_index = index
+
+if current_key == key and current_index == index:
+
+    C = np.sum(C_temp)
+    
+    print '%s\t%s' % (current_key,C)
+
+
+#    print '%s\t%s\t%s' % (key,tracker,value)
 #    if tracker1 == ",":
 #        
 #        if tracker2 == "-":

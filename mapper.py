@@ -12,8 +12,8 @@ import time
 
 s_time = time.time() # Beginning time
 
-m = 2
-n = 2
+m = 100
+n = 100
 
 for line in sys.stdin:
     
@@ -21,7 +21,7 @@ for line in sys.stdin:
     line = line.strip()
     
     # split the line corresponding to one element of either matrix
-    element = line.split("\t")
+    element = line.split(",")
     
     # Retrieve the 4 attributes of each line respectively
     provenance = element[0]
