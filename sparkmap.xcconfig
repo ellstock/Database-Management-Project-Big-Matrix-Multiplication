@@ -1,0 +1,23 @@
+
+def mapper(x):
+    map = []
+    if x[0] == "A":
+        for i in range(2):
+            key = "A" + str(i)
+            if x[1] == str(i):
+                map.append([(key,x[2]),x[3]])
+    else:
+        for i in range(2):
+            key = "B" + str(i)
+            if x[2] == str(i):
+                map.append([(key,x[1]),x[3]])
+    return(map)
+
+
+def mapper2(x):
+    for i in range(0,2):
+        if x[0][0] == "A" + str(i):
+            A_list[2*i + int(x[0][1])] = int(x[1])
+        if x[0][0] == "B" + str(i):
+            B_list[2*i + int(x[0][1])] = int(x[1])
+    return A_list,B_list
