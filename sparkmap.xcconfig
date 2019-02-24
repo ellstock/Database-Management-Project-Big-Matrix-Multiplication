@@ -14,10 +14,18 @@ def mapper(x):
     return(map)
 
 
+A_list = [0] * (2*2)
+B_list = [0] * (2*2)
+
 def mapper2(x):
     for i in range(0,2):
         if x[0][0] == "A" + str(i):
             A_list[2*i + int(x[0][1])] = int(x[1])
+            A_list = A_list
         if x[0][0] == "B" + str(i):
             B_list[2*i + int(x[0][1])] = int(x[1])
+            B_list = B_list
     return A_list,B_list
+
+remember to sortByKey after first mapper!
+also if needed use sc.parallelize to transform pipeline into RDD!

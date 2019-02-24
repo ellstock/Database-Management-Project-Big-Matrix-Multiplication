@@ -2,8 +2,8 @@
 
 import sys   
 
-length = int(2)
-width = int(2)
+length = int(200) + 1
+width = int(200) + 1
 
 for line in sys.stdin:
 	matrix, row, col, val = line.rstrip().split(",")
