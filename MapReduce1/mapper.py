@@ -12,8 +12,8 @@ import time
 
 s_time = time.time() # Beginning time
 
-m = 400
-n = 400
+m = 1
+n = 1
 
 for line in sys.stdin:
     
