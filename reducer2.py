@@ -3,8 +3,8 @@
 import sys
 import numpy as np
 
-length = int(2)
-width = int(2)
+length = int(200) + 1
+width = int(200) + 1
 
 A_list = [0]*(length*width)
 B_list = [0]*(length*width)
