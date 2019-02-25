@@ -29,6 +29,20 @@ def mapper2(x):
         if matrc == "B" + str(i):
             B_list[2*i + cr] = val
 
+def mapper2(x):
+    A_list = {}
+    B_list = {}
+    for i in range(0,2):
+        matrc = x[0][0]
+        cr = int(x[0][1])
+        val = int(x[1])
+        index = 2*i + cr
+        if matrc == "A" + str(i):
+            A_list[str(index)] = val
+        if matrc == "B" + str(i):
+            B_list[str(index)] = val
+    return A_list,B_list
+
 
 def mapper2(x):
     A_list = [0] * (2*2)

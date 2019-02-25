@@ -10,8 +10,8 @@ m = 3
 p = 3
 n = 3
 
-for i in range(1, m + 1):
-    for j in range(1, p + 1):
+for i in range(0, m):
+    for j in range(0, p):
         
         val_A = random.randint(-10,10)
 
@@ -19,8 +19,8 @@ for i in range(1, m + 1):
         line = "A" + "," + str(i) + "," + str(j) + "," + str(val_A)
         print '%s' % (line)
 
-for j in range(1, p + 1):
-    for l in range(1, n + 1):
+for j in range(0, p):
+    for l in range(0, n):
         
         val_B = random.randint(-10,10)
         
