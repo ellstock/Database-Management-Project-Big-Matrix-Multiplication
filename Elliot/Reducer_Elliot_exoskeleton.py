@@ -44,68 +44,68 @@ for line in sys.stdin :
 
 	if future_block == "C00" :
 		if past_block == "A00" : 
-			A0000 = A0000.append(value)
+			A0000.append(value)
 		elif past_block == "B00" :
-			B0000 = B0000.append(value)
+			B0000.append(value)
 		elif past_block == "A01" :
-			A0100 = A0100.append(value)
+			A0100.append(value)
 		else :
-			B1000 = B1000.append(value)
+			B1000.append(value)
 
 
 
 
 	if future_block == "C01" :
 		if past_block == "A00" : 
-			A0001 = A0001.append(value)
+			A0001.append(value)
 		elif past_block == "B01" :
-			B0101 = B0101.append(value)
+			B0101.append(value)
 		elif past_block == "A01" :
-			A0101 = A0101.append(value)
+			A0101.append(value)
 		else :
-			B1101 = B1101.append(value)
+			B1101.append(value)
 
 
 
 
 	if future_block == "C10" :
 		if past_block == "A10" : 
-			A1010 = A1010.append(value)
+			A1010.append(value)
 		elif past_block == "B00" :
-			B0010 = B0010.append(value)
+			B0010.append(value)
 		elif past_block == "A11" :
-			A1110 = A1110.append(value)
+			A1110.append(value)
 		else :
-			B1010 = B1010.append(value)
+			B1010.append(value)
 
 
 
 
 	if future_block == "C11" :
 		if past_block == "A10" : 
-			A1011 = A1011.append(value)
+			A1011.append(value)
 		elif past_block == "B01" :
-			B0111 = B0111.append(value)
+			B0111.append(value)
 		elif past_block == "A11" :
-			A1111 = A1111.append(value)
+			A1111.append(value)
 		else :
-			B1111 = B1111.append(value)
-print(A0000)
-print(B0000)
-print(A0100)
-print(B1000)
-print(A0001)
-print(B0101)
-print(A0101)
-print(B1101)
-print(A1010)
-print(B0010)
-print(A1110)
-print(B1010)
-print(A1011)
-print(B0111)
-print(A1111)
-print(B1111)
+			B1111.append(value)
+#print(A0000)
+#print(B0000)
+#print(A0100)
+#print(B1000)
+#print(A0001)
+#print(B0101)
+#print(A0101)
+#print(B1101)
+#print(A1010)
+#print(B0010)
+#print(A1110)
+#print(B1010)
+#print(A1011)
+#print(B0111)
+#print(A1111)
+#print(B1111)
 
 C00 = np.array(A0000)*np.array(B0000) + np.array(A0100)*np.array(B1000)
 C01 = np.array(A0001)*np.array(B0101) + np.array(A0101)*np.array(B1101)
