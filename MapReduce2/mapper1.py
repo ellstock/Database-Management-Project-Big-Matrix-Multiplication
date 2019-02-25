@@ -23,8 +23,8 @@ import sys
 
 #actual mapping algorithm that needs A_i, B_i and text file as input
 
-n = 2
-m = 2
+n = int(3)
+m = int(3)
 
 for line in sys.stdin:
     line = line.strip()

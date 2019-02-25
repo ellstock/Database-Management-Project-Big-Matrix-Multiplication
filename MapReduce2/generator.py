@@ -6,9 +6,9 @@
 import random
 import sys
 
-m = 2
-p = 2
-n = 2
+m = 3
+p = 3
+n = 3
 
 for i in range(1, m + 1):
     for j in range(1, p + 1):
