@@ -8,6 +8,13 @@ import time
 
 start_time = time.time()
 
+# A (n x p)
+# B (p x m)
+
+n = int(3)
+p = int(3)
+m = int(3)
+
 for line in sys.stdin :
     element = line.rstrip().split(",")
     
@@ -20,65 +27,57 @@ for line in sys.stdin :
         if int(i) <= len(i)/2:
             if int(j) <= len(j)/2:
                 block = 'A00'
-                key1 = 'C00'
-                key2 = 'C01'
-                provenance_of_block = 'A' + ',' + str(i) + ',' + str(j)
-                print '%s\t%s\t%s\t%s' % (key1, block, provenance_of_block, value)
-                print '%s\t%s\t%s\t%s' % (key2, block, provenance_of_block, value)
+                for l in range(0,m):
+                    key = 'C0' + str(l)
+                    provenance_of_block = 'A' + ',' + str(i) + ',' + str(j)
+                    print '%s\t%s\t%s\t%s' % (key, block, provenance_of_block, value)
             else:
                 block = 'A01'
-                key1 = 'C00'
-                Key2 = 'C01'
-                provenance_of_block = 'A' + ',' + str(i) + ',' + str(j)
-                print '%s\t%s\t%s\t%s' % (key1, block, provenance_of_block, value)
-                print '%s\t%s\t%s\t%s' % (key2, block, provenance_of_block, value)
+                for l in range(0,m):
+                    key = 'C0' + str(l)
+                    provenance_of_block = 'A' + ',' + str(i) + ',' + str(j)
+                    print '%s\t%s\t%s\t%s' % (key, block, provenance_of_block, value)
         else:
             if int(j) <= len(j)/2:
                 block = 'A10'
-                key1 = 'C10'
-                key2 = 'C11'
-                provenance_of_block = 'A' + ',' + str(i) + ',' + str(j)
-                print '%s\t%s\t%s\t%s' % (key1, block, provenance_of_block, value)
-                print '%s\t%s\t%s\t%s' % (key2, block, provenance_of_block, value)
+                for l in range(0,m):
+                    key = 'C1' + str(l)
+                    provenance_of_block = 'A' + ',' + str(i) + ',' + str(j)
+                    print '%s\t%s\t%s\t%s' % (key, block, provenance_of_block, value)
             else:
                 block = 'A11'
-                key1 = 'C10'
-                key2 = 'C11'
-                provenance_of_block = 'A' + ',' + str(i) + ',' + str(j)
-                print '%s\t%s\t%s\t%s' % (key1, block, provenance_of_block, value)
-                print '%s\t%s\t%s\t%s' % (key2, block, provenance_of_block, value)
+                for l in range(0,m):
+                    key = 'C1' + str(l)
+                    provenance_of_block = 'A' + ',' + str(i) + ',' + str(j)
+                    print '%s\t%s\t%s\t%s' % (key, block, provenance_of_block, value)
 
     else:
         if int(i) <= len(i)/2:
             if int(j) <= len(j)/2:
                 block = 'B00'
-                key1 = 'C00'
-                key2 = 'C10'
-                provenance_of_block = 'B' + ',' + str(i) + ',' + str(j)
-                print '%s\t%s\t%s\t%s' % (key1, block, provenance_of_block, value)
-                print '%s\t%s\t%s\t%s' % (key2, block, provenance_of_block, value)
+                for l in range(0,n):
+                    key = 'C' + str(l) + '0'
+                    provenance_of_block = 'B' + ',' + str(i) + ',' + str(j)
+                    print '%s\t%s\t%s\t%s' % (key, block, provenance_of_block, value)
             else:
                 block = 'B01'
-                key1 = 'C01'
-                key2 = 'C11'
-                provenance_of_block = 'B' + ',' + str(i) + ',' + str(j)
-                print '%s\t%s\t%s\t%s' % (key1, block, provenance_of_block, value)
-                print '%s\t%s\t%s\t%s' % (key2, block, provenance_of_block, value)
+                for l in range(0,n):
+                    key = 'C' + str(l) + '1'
+                    provenance_of_block = 'B' + ',' + str(i) + ',' + str(j)
+                    print '%s\t%s\t%s\t%s' % (key, block, provenance_of_block, value)
 
         else:
             if int(j) <= len(j)/2:
                 block = 'B10'
-                key1 = 'C00'
-                key2 = 'C10'
-                provenance_of_block = 'B' + ',' + str(i) + ',' + str(j)
-                print '%s\t%s\t%s\t%s' % (key1, block, provenance_of_block, value)
-                print '%s\t%s\t%s\t%s' % (key2, block, provenance_of_block, value)
+                for l in range(0,n):
+                    key = 'C' + str(l) + '0'
+                    provenance_of_block = 'B' + ',' + str(i) + ',' + str(j)
+                    print '%s\t%s\t%s\t%s' % (key, block, provenance_of_block, value)
             else:
                 block = 'B11'
-                key1 = 'C01'
-                key2 = 'C11'
-                provenance_of_block = 'B' + ',' + str(i) + ',' + str(j)
-                print '%s\t%s\t%s\t%s' % (key1, block, provenance_of_block, value)
-                print '%s\t%s\t%s\t%s' % (key2, block, provenance_of_block, value)
+                for l in range(0,n):
+                    key = 'C' + str(l) + '1'
+                    provenance_of_block = 'B' + ',' + str(i) + ',' + str(j)
+                    print '%s\t%s\t%s\t%s' % (key, block, provenance_of_block, value)
 
 end_time = time.time()
