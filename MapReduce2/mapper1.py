@@ -2,7 +2,7 @@
 
 import sys
 
-####ASSUMPTION: rdered matrix!
+####ASSUMPTION: ordered matrix!
 
 ##get the size of the matrices from a size file:
 #info = open("matrix_size.txt").readlines()
