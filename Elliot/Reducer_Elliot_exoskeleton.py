@@ -4,7 +4,7 @@ import sys
 import time
 import numpy as np
 
-# first three elements of list name are the past block and last two digits represent i and j of future block.
+# The First three elements of a list name represent the past block and last two digits represent i and j of future block. (eg: A0100 means that the cells in this list come from A01 - the upper right block of A - and we will use this list in the computation of C00). 
 
 # Block C00:
 B0000 = []
@@ -31,7 +31,13 @@ A1111 = []
 B1111 = []
 
 for line in sys.stdin :
+	
+	# Eliminate leading and trailing white spaces
+
 	ls = line.rstrip().split('\t')
+
+	# We now split the information into the various chunks that were described earlier in the mapper
+
 	future_block = str(ls[0])
 	past_block = str(ls[1])
 	provenance = str(ls[2])
@@ -41,6 +47,8 @@ for line in sys.stdin :
 	i = str(provenance_details[1])
 	j = str(provenance_details[2])
 
+
+# We now split the information to create the lists that will be used to compute the blocks of C. In the chunk below, we are determining how we will compute C00, which depends on 4 blocks from the original matrices : A00, B00, A01 and B10. We repeat this process for each of the four blocks of C
 
 	if future_block == "C00" :
 		if past_block == "A00" : 
@@ -90,6 +98,7 @@ for line in sys.stdin :
 			A1111.append(value)
 		else :
 			B1111.append(value)
+
 print(A0000)
 print(B0000)
 print(A0100)
@@ -106,6 +115,8 @@ print(A1011)
 print(B0111)
 print(A1111)
 print(B1111)
+
+# We now multiply the lists to obtain our 4 lists of values for the four blocks of C
 
 #C00 = np.array(A0000)*np.array(B0000) + np.array(A0100)*np.array(B1000)
 #C00 = np.dot(A0000,B0000) + np.dot(A0100,B1000)
