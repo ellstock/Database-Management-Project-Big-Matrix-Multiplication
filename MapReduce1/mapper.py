@@ -52,8 +52,6 @@ for line in sys.stdin:
 
 e_time = time.time() # End time
 
-#print('Map phase : ' + str(e_time-s_time))
-
 # Printing last object!
 
 #print '%s\t%s' % ((i, col),(provenance, row, value))

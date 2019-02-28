@@ -2,12 +2,12 @@
 def mapper(x):
     map = []
     if x[0] == "A":
-        for i in range(2):
+        for i in range(4):
             key = "A" + str(i)
             if x[1] == str(i):
                 map.append([(key,x[2]),x[3]])
     else:
-        for i in range(2):
+        for i in range(4):
             key = "B" + str(i)
             if x[2] == str(i):
                 map.append([(key,x[1]),x[3]])
@@ -16,18 +16,20 @@ def mapper(x):
 
 
 def mapper2(x):
-    A_list = [0]*(2*2)
-    B_list = [0]*(2*2)
-    temp = max(2,2)
-    for i in range(0,temp):
+    A_list = [0]*(3*3)
+    B_list = [0]*(3*3)
+    for i in range(0,4):
         matrc = x[0][0]
         cr = int(x[0][1])
         val = int(x[1])
         cr, val = map(int,[cr,val])
         if matrc == "A" + str(i):
-            A_list[2*i + cr] = val
+            A_list[2*i + cr] = float(val)
         if matrc == "B" + str(i):
-            B_list[2*i + cr] = val
+            B_list[2*i + cr] = float(val)
+
+sortByKey().map(lambda x: (x[0][0][0],x[1]))
+groupByKey().reduce(lambda x,y: np.dot(x,y))
 
 def mapper2(x):
     A_list = {}
