@@ -4,8 +4,8 @@ import sys
 import numpy as np
 
 # We know the dimensions of A and B!
-length = int(400) + 1
-width = int(400) + 1
+length = int(600) + 1
+width = int(600) + 1
 
 # Initializing A_list and B_list to deal with sparsity
 A_list = [0]*(length*width)
@@ -25,7 +25,7 @@ for line in sys.stdin:
     # The value associated to that element:
     val = int(element[2])
     
-    for i in range(0,401):
+    for i in range(0,601):
 		if matrc == "A" + str(i):
 			A_list[length*i + index] = val
 

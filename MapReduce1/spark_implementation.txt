@@ -1,0 +1,29 @@
+data = sc.textFile("")
+
+#split data into pairs
+pairs = data.map(lambda x: x.strip().split(','))   
+
+# define a map function similar to the one described in our previous mapreduce algorithm,
+    remember to update the range depending on the size of the matrix!
+def mapper1(x):
+    map = []
+    if x[0] == "A":
+        for i in range (4):
+            map.append([(int(x[1]),int(i),int(x[2])),int(x[3])])
+    else:
+        for j in range (4):
+            map.append([(int(j),int(x[2]),int(x[1])),int(x[3])])
+    return(Y)
+
+# Apply our previous map function
+pairs2 = pairs.flatMap(lambda x: mapper1(x))
+
+# Transform Pipeline into an RDD !
+pairs3 = sc.parallelize(pairs2.collect()) 
+
+# Deal with sparsity with intermediate index and do the element wise product of all values of A and B necessary for the element of C
+pairs4= pairs3.groupByKey().mapValues(list).mapValues(lambda x: x[0]*x[1] if len(x) > 1 else 0)
+
+# Create output with key being the index of the element of C computed and its respective value:
+output = pairs4.map(lambda x: ((x[0][0],x[0][1]),x[1])).reduceByKey(lambda x, y: x + y)
+output.collect()
