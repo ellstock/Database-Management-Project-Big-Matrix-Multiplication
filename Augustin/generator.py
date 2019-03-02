@@ -6,9 +6,9 @@
 import random
 import sys
 
-m = 601
-p = 601
-n = 601
+m = 36
+p = 36
+n = 36
 
 for i in range(0, m):
     for j in range(0, p):
