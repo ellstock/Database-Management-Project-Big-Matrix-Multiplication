@@ -3,8 +3,8 @@
 import sys
 
 # We know the dimensions of A and B! We also assume that matrix is sorted by line then by column:
-length = int(600) + 1
-width = int(600) + 1
+length = int(35) + 1
+width = int(35) + 1
 
 for line in sys.stdin:
     

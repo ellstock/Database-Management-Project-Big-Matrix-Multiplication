@@ -6,13 +6,12 @@
 
 import sys
 import numpy as np
-import time
 
-s_time = time.time() # Beginning time
-
-list_A = []
-list_B = []
-current_key = str((0, 0))
+current_key = "0,0"
+current_index = str(0)
+C_temp = []
+A = None
+B = None
 
 for line in sys.stdin:
     
@@ -23,83 +22,60 @@ for line in sys.stdin:
     element = line.split("\t")
     
     key = element[0]
-    provenance = str(element[1][2])
-    tracker1 = element[1][7]
-    tracker2 = element[1][9]
-    tracker3 = element[1][10]
-    
-    if tracker1 == ",":
-        
-        if tracker2 == "-":
-            
-            value = -int(element[1][10])
-    
-        else:
-            
-            value = int(element[1][9])
-
-    else:
-    
-        if tracker3 == "-":
-        
-            value = -int(element[1][11])
-        
-        else:
-            
-            value = int(element[1][10])
-
-    # As long as we are dealing with the same key we keep on appending value either from A or B to a list in order to apply elemebt-wise multiplication
+    index = element[1]
+    value = float(element[2])
     
     if current_key == key:
-
-        if provenance == "A":
-    
-            list_A.append(value)
+        
+        if current_index == index and A == None:
+            
+            A = value
             current_key = key
+            current_index = index
+    
+        elif current_index == index and B == None:
+            
+            B = value
+            
+            C_temp.append(A*B)
+            
+            current_key = key
+            current_index = index
+            
+            A = None
+            B = None
+        
+        elif current_index != index and B == None:
+            
+            A = None
+            A = value
+            current_key = key
+            current_index = index
 
         else:
-            
-            list_B.append(value)
+    
+            A = value
+        
             current_key = key
+            current_index = index
 
     else:
-
-        A = np.array(list_A)
-        B = np.array(list_B)
-
-        list_C = A * B
-        C = np.sum(list_C)
-
-        print '%s\t%s' % (current_key,C)
-#        print '%s\t%s\t%s\t%s\t%s' % ((current_key),(C),list_A,list_B,list_C)
-
-        current_key = key
-        list_A = []
-        list_B = []
-
-        if provenance == "A":
-
-            list_A.append(value)
-
-        else:
-            
-            list_B.append(value)
-
-# Printing last object!
-
-if current_key == key:
     
-    A = np.array(list_A)
-    B = np.array(list_B)
-    list_C = A * B
-    C = np.sum(list_C)
+        C = np.sum(C_temp)
+        
+        print '%s\t%s' % (current_key,C)
+        
+        A = value
+        C_temp = []
+        C = None
+        current_key = key
+        current_index = index
+
+if current_key == key and current_index == index:
+    
+    C = np.sum(C_temp)
     
     print '%s\t%s' % (current_key,C)
-#    print '%s\t%s\t%s\t%s\t%s' % ((current_key),(C),list_A,list_B,list_C)
-
-e_time = time.time() # End time
-
-print('Reduce phase : ' + str(e_time-s_time))
 
 
 #### NOTES : Not sure which format we should print out elements of our final matrix... We also need to create a

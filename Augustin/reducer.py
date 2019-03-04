@@ -4,8 +4,8 @@ import sys
 import numpy as np
 
 # We know the dimensions of A and B!
-length = int(600) + 1
-width = int(600) + 1
+length = int(35) + 1
+width = int(35) + 1
 
 # Initializing A_list and B_list to deal with sparsity
 A_list = [0]*(length*width)
