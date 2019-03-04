@@ -63,7 +63,8 @@ for line in sys.stdin :
 
 
 
-	if future_block == "C01" :
+
+	elif future_block == "C01" :
 		if past_block == "A00" : 
 			A0001.append(value)
 		elif past_block == "B01" :
@@ -76,7 +77,7 @@ for line in sys.stdin :
 
 
 
-	if future_block == "C10" :
+	elif future_block == "C10" :
 		if past_block == "A10" : 
 			A1010.append(value)
 		elif past_block == "B00" :
@@ -89,7 +90,7 @@ for line in sys.stdin :
 
 
 
-	if future_block == "C11" :
+	else :
 		if past_block == "A10" : 
 			A1011.append(value)
 		elif past_block == "B01" :
@@ -99,41 +100,41 @@ for line in sys.stdin :
 		else :
 			B1111.append(value)
 
-print(A0000)
-print(B0000)
-print(A0100)
-print(B1000)
-print(A0001)
-print(B0101)
-print(A0101)
-print(B1101)
-print(A1010)
-print(B0010)
-print(A1110)
-print(B1010)
-print(A1011)
-print(B0111)
-print(A1111)
-print(B1111)
+print(len(A0000))
+print(len(B0000))
+print(len(A0100))
+print(len(B1000))
+print(len(A0001))
+print(len(B0101))
+print(len(A0101))
+print(len(B1101))
+print(len(A1010))
+print(len(B0010))
+print(len(A1110))
+print(len(B1010))
+print(len(A1011))
+print(len(B0111))
+print(len(A1111))
+print(len(B1111))
 
 # We now multiply the lists to obtain our 4 lists of values for the four blocks of C
 
 #C00 = np.array(A0000)*np.array(B0000) + np.array(A0100)*np.array(B1000)
 #C00 = np.dot(A0000,B0000) + np.dot(A0100,B1000)
-print(np.dot(A0000,B0000))
-print(np.dot(A0100,B1000))
+#print(np.dot(A0000,B0000))
+#print(np.dot(A0100,B1000))
 #C01 = np.array(A0001)*np.array(B0101) + np.array(A0101)*np.array(B1101)
 #C01 = np.dot(A0001,B0101) + np.dot(A0101,B1101)
-print(np.dot(A0001,B0101))
-print(np.dot(A0101,B1101))
+#print(np.dot(A0001,B0101))
+#print(np.dot(A0101,B1101))
 #C10 = np.array(A1010)*np.array(B0010) + np.array(A1110)*np.array(B1010)
 #C10 = np.dot(A1010,B0010) + np.dot(A1110,B1010)
-print(np.dot(A1010,B0010))
-print(np.dot(A1110,B1010))
+#print(np.dot(A1010,B0010))
+#print(np.dot(A1110,B1010))
 #C11 = np.array(A1011)*np.array(B0111) + np.array(A1111)*np.array(B1111)
 #C11 = np.dot(A1011,B0111) + np.dot(A1111,B1111)
-print(np.dot(A1011,B0111))
-print(np.dot(A1111,B1111))
+#print(np.dot(A1011,B0111))
+#print(np.dot(A1111,B1111))
 #print(C00)
 #print(C01)
 #print(C10)

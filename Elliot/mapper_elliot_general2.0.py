@@ -98,6 +98,6 @@ for line in sys.stdin :
                     key = 'C' + str(l) + '1'
                     provenance_of_block = 'B' + ',' + str(i) + ',' + str(j)
                     print '%s\t%s\t%s\t%s' % (key, block, provenance_of_block, value)
-
+	
 end_time = time.time()
 print ('The time taken for this job was ' + str(end_time - start_time) + ' seconds')
